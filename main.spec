@@ -1,12 +1,19 @@
 # -*- mode: python ; coding: utf-8 -*-
+pillow_path = '/Users/pier/.virtualenvs/fancyfolders/lib/python3.11/site-packages/PIL'
 
 
 a = Analysis(
     ['fancyfolders/main.py'],
     pathex=[],
     binaries=[],
-    datas=[("assets", "assets")],
-    hiddenimports=[],
+    #datas=[("assets", "assets")],
+    datas=[
+        ("assets", "assets"),
+        ("fancyfolders", "fancyfolders"), # Aggiungi questa riga
+        (pillow_path, "PIL") # <-- QUESTA RIGA COPIERÀ LA CARTELLA PIL AL SUO POSTO
+    ],
+    #hiddenimports=[],
+    hiddenimports=['uuid', 'colorsys', 'Cocoa'], # Aggiungi 'Cocoa' qui
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
